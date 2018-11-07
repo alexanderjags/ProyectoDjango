@@ -1,0 +1,27 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+    {% if form.errors %}
+        <p>Error en los datos ingresados, vuelva a intentarlo otra vez</p>
+    {% endif %}
+    {% csrf_token %}
+    <body class="text-center">
+       <form class="form-signin" method="post" action="{% url 'login' %}">
+
+      <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Log in</h1>
+          <label for="inputEmail" class="sr-only">Usuario{{ form.username.label_tag }}</label>
+            {{ form.username }}
+          <label for="inputPassword" class="sr-only">Password {{ form.password.label_tag }}</label>
+            <label for="inputPassword" class="sr-only">Password</label>
+            {{ form.password }}
+          <div class="checkbox mb-3">
+          <label>
+          <button class="btn btn-lg btn-primary btn-block" type="submit"value="login">Ingesar</button>
+        </label>
+      </div>
+
+      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+    </form>
+  </body>
+{% endblock %}
